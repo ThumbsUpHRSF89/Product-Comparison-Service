@@ -1,3 +1,4 @@
+
 var names = ['Phantom', 'Mavic Pro', 'Spark', 'Halo', 'Platinum Fly', 'Bebop 2', 'Bebop 1', 'Typhoon', 'Hornet', 'Eagle', 'Aardvark', 'Weasel', 'Falcon', 'Parrot', 'Tsunami', 'Hummingbird', 'Whale', 'Lead Ballon', 'Excelsior', 'Steadfast', 'Titanic', 'Challenger', 'Explorer', 'Titan', 'Galileo', 'Warthog', 'Constitution', 'Britannia', 'Queen Mary', 'Hanyu', 'Marlin', 'Henry', 'Ivy', 'Man-Bat',];
 var manufacturer = ['Dajiang Innovations', 'AeroVironment', 'Ambarella', 'Boeing', 'Lockheed Martin', '3D Robotics', 'Parrot SA', 'GoPro', 'Yuneec', 'Northrop Grumman', ];
 var color = ['Black', 'Slate', 'White', 'Azure', 'Crimson', 'Vermillion',];
@@ -25,20 +26,20 @@ var image = [
 var randomNumberGen = (someNum) => {
   return Math.floor(Math.random() * someNum)
 }
-
+// 50-74
 var droneMaker = (number) => {
   var dataStorage = [];
-  for (var i = 0; i < number; i++) {
+  for (var i = 50; i < number; i++) {
     let newDrone = {};
     newDrone = {
       id: i,
-      name: names[randomNumberGen(name.length)],
+      name: names[randomNumberGen(names.length)],
       price: randomNumberGen(1200),
-      weight: randomNumberGen(6),
+      weight: (randomNumberGen(6) + 1),
       manufacturer: manufacturer[randomNumberGen(manufacturer.length)],
-      dimensions: `${randomNumberGen(21)} x ${randomNumberGen(21)} x ${randomNumberGen(21)} inches`,
+      dimensions: `${randomNumberGen(21) + 1} x ${randomNumberGen(21) + 1} x ${randomNumberGen(21) + 1} inches`,
       color: color[randomNumberGen(color.length)],
-      image: image[randomNumberGen(image.length)],
+      image_url: image[randomNumberGen(image.length)],
       category: 'drone',
       overallReview: randomNumberGen(6),
       reviewNumber: randomNumberGen(400)
