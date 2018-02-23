@@ -6,6 +6,7 @@
   "dependencies": {
     "eslint": "^4.18.1",
     "express": "^4.16.2",
+    "path": "^0.12.7",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
@@ -28,7 +29,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --progress --colors --config ./webpack.config.js"
+    "build": "webpack --watch",
+    "start": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
