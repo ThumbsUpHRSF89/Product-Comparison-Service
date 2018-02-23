@@ -1,9 +1,9 @@
 module.exports = {
   entry: [
-    './client/src/app.js'
+    './client/src/app.jsx'
   ],
   output: {
-    path: __dirname + '/dist',
+    path: __dirname + '/client/dist',
     publicPath: '/',
     filename: 'bundle.js'
   },
@@ -20,6 +20,6 @@ module.exports = {
     extensions: ['*', '.js', '.jsx']
   },
   devServer: {
-    contentBase: './dist'
+    contentBase: './client/dist'
   }
 };
