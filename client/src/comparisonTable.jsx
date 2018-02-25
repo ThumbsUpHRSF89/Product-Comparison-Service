@@ -79,13 +79,14 @@ class ComparisonTable extends React.Component {
     })
   }
 
-  parseAttributesNoImageNoName() {
+  parseAttributesNoImageNoNameNoId() {
     let arrAttributes = []
     let objData = {};
     if (this.state.data[0]) {
       objData = JSON.parse(JSON.stringify(this.state.data[0]));
       delete objData.name;
       delete objData.image_url;
+      delete objData.id;
       arrAttributes = Object.keys(objData);
     }
     this.setState({
@@ -93,9 +94,20 @@ class ComparisonTable extends React.Component {
     })
   }
 
+  englishCasing(string) {
+    let arrString = string.split('');
+    arrString[0] = arrString[0].toUpperCase();
+    for (var i = arrString.length - 1; i > 0; i--) {
+      if (arrString[i].toUpperCase() === arrString[i]) {
+        arrString.splice(i, 0, ' ');
+      }
+    }
+    return arrString.join('');
+  }
+
   componentDidMount() {
     this.parseImagesAndNames();
-    this.parseAttributesNoImageNoName();
+    this.parseAttributesNoImageNoNameNoId();
   }
 
   render() {
@@ -116,7 +128,7 @@ class ComparisonTable extends React.Component {
           </tr>
           {this.state.attributes.map(property => 
             <tr id={property}>
-              <td>{property}</td>
+              <td>{this.englishCasing(property)}</td>
               {this.state.data.map(object => /*Ask toby why curly boys broke the mapping here- curlies are for multiple lines?*/
                 <td>{object[property]}</td>
               )}
