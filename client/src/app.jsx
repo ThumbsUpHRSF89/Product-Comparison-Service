@@ -23,13 +23,3 @@ class App extends React.Component {
 ReactDOM.render(
   <App/>, document.getElementById('app')
 );
-
-// console.log('Hi there');
-
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-
-// ReactDOM.render(
-//   <h1>Sup, I'm an app!</h1>,
-//   document.getElementById('app')
-// );
