@@ -126,6 +126,11 @@ class ComparisonTable extends React.Component {
               <th width='250px'>{element}</th>
             )}
           </tr>
+          <tr>
+            {this.state.data.map(element => 
+              <button width='250px'>Add to Cart</button>
+            )}
+          </tr>
           {this.state.attributes.map(property => 
             <tr id={property}>
               <td>{this.englishCasing(property)}</td>
