@@ -111,7 +111,7 @@ class ComparisonTable extends React.Component {
           <tr id='name-row'>
             <td width='250px'></td>
             {this.state.names.map(element =>
-              <td width='250px'>{element}</td>
+              <th width='250px'>{element}</th>
             )}
           </tr>
           {this.state.attributes.map(property => 
