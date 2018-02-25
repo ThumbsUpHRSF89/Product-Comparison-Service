@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import Comparable from 'comparable.jsx'
 
 class ComparisonTable extends React.Component {
   constructor(props) {
@@ -27,33 +26,67 @@ class ComparisonTable extends React.Component {
         image_url: 'https://i0.wp.com/thedronegirl.com/wp-content/uploads/2016/07/MG_1612.jpg?resize=1024%2C683',
         category: 'drone' },],
       headerImages: [],
+      names: [],
+      attributes: [],
     }
   }
 
-  parseImageUrls() {
+  parseImagesAndNames() {
     let arrImages = [];
+    let arrNames = [];
     this.state.data.forEach(object => {
       arrImages.push(object.image_url);
+      arrNames.push(object.name);
     })
     this.setState({
-      headerImages:arrImages
+      headerImages: arrImages,
+      names: arrNames,
+    })
+  }
+
+  parseAttributesNoImageNoName() {
+    let arrAttributes = []
+    let objData = {};
+    if (this.state.data[0]) {
+      objData = JSON.parse(JSON.stringify(this.state.data[0]));
+      delete objData.name;
+      delete objData.image_url;
+      arrAttributes = Object.keys(objData);
+    }
+    this.setState({
+      attributes: arrAttributes,
     })
   }
 
   componentDidMount() {
-    this.parseImageUrls();
+    this.parseImagesAndNames();
+    this.parseAttributesNoImageNoName();
   }
 
   render() {
     return (
       <table>
-        <tbody>
-          <tr>
-            <td id='empty-first-column'></td>
+        <tbody className='tables'>
+          <tr id='image-row'>
+            <td id='empty-first-column' height='250px' width='250px'></td>
             {this.state.headerImages.map(link => 
-              <img src={link}/>
+              <td><img src={link} height='250px' width='250px'/></td>
             )}
           </tr>
+          <tr id='name-row'>
+            <td width='250px'></td>
+            {this.state.names.map(element =>
+              <td width='250px'>{element}</td>
+            )}
+          </tr>
+          {this.state.attributes.map(property => 
+            <tr id={property}>
+              <td>{property}</td>
+              {this.state.data.map(object => 
+                <td>{object[property]}</td>
+              )}
+            </tr>
+          )}
         </tbody>
       </table>
     );
