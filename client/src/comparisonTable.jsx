@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import NameRow from './nameRow';
 
 class ComparisonTable extends React.Component {
   constructor(props) {
@@ -106,6 +107,8 @@ class ComparisonTable extends React.Component {
   }
 
   componentDidMount() {
+    // $.ajax
+
     this.parseImagesAndNames();
     this.parseAttributesNoImageNoNameNoId();
   }
@@ -120,12 +123,7 @@ class ComparisonTable extends React.Component {
               <td><img src={link} height='250px' width='250px'/></td>
             )}
           </tr>
-          <tr id='name-row'>
-            <td width='250px'></td>
-            {this.state.names.map(element =>
-              <th width='250px'>{element}</th>
-            )}
-          </tr>
+          <NameRow names={this.state.names}/>
           <tr>
             {this.state.data.map(element => 
               <button width='250px'>Add to Cart</button>
