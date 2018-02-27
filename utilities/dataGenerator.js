@@ -49,3 +49,31 @@ var droneMaker = (number) => {
   }
   return dataStorage;
 }
+
+var phoneDecorator = (someArr) => {
+  var dataStorage = [];
+  for (var i = 0; i < 25; i++) {
+    someArr[i].price = ('$' + randomNumberGen(1000) + '.00');
+    someArr[i].weight = randomNumberGen(17) + ' oz',
+    someArr[i].dimensions = randomNumberGen(10) + ' x ' + (randomNumberGen(10)/10) + ' x ' + randomNumberGen(5) + ' in';
+    someArr[i].color = color[randomNumberGen(color.length)],
+    someArr[i].overallReview = randomNumberGen(6),
+    someArr[i].reviewNumber = randomNumberGen(400)
+    dataStorage.push(someArr[i]);
+  }
+  return dataStorage
+}
+
+var tvDecorator = (someArr) => {
+  var dataStorage = [];
+  for (var i = 0; i < 25; i++) {
+    someArr[i].price = ('$' + randomNumberGen(2000) + '.00');
+    someArr[i].weight = randomNumberGen(50) + ' lb',
+    someArr[i].dimensions = randomNumberGen(80) + ' x ' + (randomNumberGen(10)) + ' x ' + randomNumberGen(40) + ' in';
+    someArr[i].color = color[randomNumberGen(color.length)],
+    someArr[i].overallReview = randomNumberGen(6),
+    someArr[i].reviewNumber = randomNumberGen(400)
+    dataStorage.push(someArr[i]);
+  }
+  return dataStorage
+}
