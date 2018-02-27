@@ -34,7 +34,7 @@ var droneMaker = (number) => {
     newDrone = {
       id: i,
       name: names[randomNumberGen(names.length)],
-      price: randomNumberGen(1200),
+      price: ('$' + randomNumberGen(1200) + '.00'),
       weight: (randomNumberGen(6) + 1),
       manufacturer: manufacturer[randomNumberGen(manufacturer.length)],
       dimensions: `${randomNumberGen(21) + 1} x ${randomNumberGen(21) + 1} x ${randomNumberGen(21) + 1} inches`,
