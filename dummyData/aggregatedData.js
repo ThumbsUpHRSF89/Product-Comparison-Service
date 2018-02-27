@@ -1,4 +1,4 @@
-[ 
+module.exports.aggregate = [ 
   { id: 0,
     category: 'phone',
     name: 'productnamMoto X (4th Generation) - with hands-free Amazon Alexa – 32 GB - Unlocked – Super Black - Prime Exclusive',
