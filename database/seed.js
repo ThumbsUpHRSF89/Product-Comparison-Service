@@ -34,7 +34,5 @@ var seedDb = function(data) {
   })
 };
 
-// console.log('Product.model = ', Product.ProductModel)
-
 seedDb(data.aggregate);
 
