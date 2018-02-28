@@ -23,12 +23,12 @@ var seedDb = function(data) {
       overallReview: element.overallReview,
       numberOfRatings: element.numberOfRatings,
     });
-    console.log('newDoc = ', newDoc);
+    // console.log('newDoc = ', newDoc);
     insertOne(newDoc, (err) => {
       if (err) {
         console.log('Doc save error', err);
       } else {
-        console.log('Doc saved!', element);
+        console.log('Doc saved!', element.id);
       }
     })
   })
