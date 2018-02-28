@@ -19,6 +19,6 @@ const productSchema = mongoose.Schema({
   reviewNumber: Number,
 });
 
-let ProductModel = mongoose.model('Product', productSchema);
+let ProductModel = mongoose.model('ProductModel', productSchema);
 
 module.exports.ProductModel = ProductModel;
