@@ -4,7 +4,7 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, '/../client/dist')))
 
-let dummyData = [
+let dummyData1 = [
   { id: 50,
   name: 'Mavic Pro',
   price: 525,
@@ -62,19 +62,19 @@ let dummyData = [
     reviewNumber: 339 },
 ]
 
-app.get('/:Id', (req, res) => {
-  console.log('req.params.Id = ', req.params.Id);
-  res.send(dummyData);
+app.get('/compareproducts/:Id', (req, res) => {
+  console.log('req.params = ', req.params);
+  res.send(dummyData1);
 });
 
-app.get('/compareproducts', (req, res) => {
-  console.log('getting ajax request');
-  res.send(dummyData);
-});
-
-// app.get('/*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '/../client/dist/index.html'));
+// app.get('/compareproducts', (req, res) => {
+//   console.log('getting ajax request');
+//   res.send(dummyData);
 // });
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/../client/dist/'));
+});
 
 
 
