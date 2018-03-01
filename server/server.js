@@ -6,6 +6,10 @@ const models = require('../database/models/modelSchema.js');
 
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 
+app.use('/favicon.ico', (req, res) => {
+  res.send('/../client/dist');
+})
+
 // app.get('/:Id', (req, res) => {
 //   console.log('Id = ', req.params.Id)
 //   let productId = req.params.Id
@@ -20,17 +24,17 @@ app.use('/:Id', (req, res) => {
     if (err) {
       console.log('Database error: ', err);
     } else {
+      console.log('doc = ', doc);
       dataForServer.push(doc);
       let category = doc.category;
       controller.findFour(category, (err, docs) => {
         if (err) {
           console.log('findFour error: ', err);
         } else {
-          console.log(docs);
           docs.forEach(object => {
             dataForServer.push(object);
-            console.log('dataForServer = ', dataForServer);
           });
+          console.log('dataForServer = ', dataForServer);
           res.send(dataForServer);
         }
       });
