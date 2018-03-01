@@ -1,6 +1,6 @@
 mongoose = require('mongoose');
 
-const productSchema = mongoose.Schema({
+const productSchema = new mongoose.Schema({
   id: {
     type: Number,
     unique: true,
