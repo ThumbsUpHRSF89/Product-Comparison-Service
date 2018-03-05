@@ -99,7 +99,7 @@ class ComparisonTable extends React.Component {
     });
   }
 
-  parseAttributesNoImageNoNameNoId() {
+  parseAttributesNoImageNoNameNoIdNoUnders() {
     let arrAttributes = [];
     let objData = {};
     if (this.state.data[0]) {
@@ -107,6 +107,8 @@ class ComparisonTable extends React.Component {
       delete objData.name;
       delete objData.image_url;
       delete objData.id;
+      delete objData._id;
+      delete objData.__v;
       arrAttributes = Object.keys(objData);
     }
     this.setState({
@@ -127,7 +129,7 @@ class ComparisonTable extends React.Component {
 
   // componentDidMount() {
   //   this.parseImagesAndNames();
-  //   this.parseAttributesNoImageNoNameNoId();
+  //   this.parseAttributesNoImageNoNameNoIdNoUnders();
   // }
 
   getData() {
@@ -143,7 +145,7 @@ class ComparisonTable extends React.Component {
           data: serverData,
         });
         this.parseImagesAndNames();
-        this.parseAttributesNoImageNoNameNoId();
+        this.parseAttributesNoImageNoNameNoIdNoUnders();
       },
       failure: err => {
         console.log('error = ', error);
