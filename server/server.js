@@ -4,7 +4,7 @@ const app = express();
 const controller = require('../database/controllers/controller.js');
 const models = require('../database/models/modelSchema.js');
 
-app.use(express.static(path.join(__dirname, '/../client/dist')));
+app.use('/:Id', express.static(path.join(__dirname, '/../client/dist')));
 
 app.use('/favicon.ico', (req, res) => {
   res.send('/../client/dist');
@@ -16,7 +16,7 @@ app.use('/favicon.ico', (req, res) => {
 //   res.send(productId)
 // });
 
-app.use('/:Id', (req, res) => {
+app.use('/compareproducts/:Id', (req, res) => {
   console.log('req.params.Id = ', req.params.Id);
   let productId = parseInt(req.params.Id);
   let dataForServer = [];
