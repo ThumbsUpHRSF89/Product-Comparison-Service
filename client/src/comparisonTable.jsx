@@ -61,8 +61,9 @@ class ComparisonTable extends React.Component {
 
   getData() {
     const { location: { pathname } } = window;
-    const productID = Number(pathname.split('/').pop());
-    console.log('productId = ', productID)
+    const productID = Number(pathname.slice(0, -1).split('/').pop());
+    // console.log('pathname = ', pathname);
+    // console.log('productId = ', productID)
     $.ajax({
       url: '/compareproducts/' + productID,
       type: 'GET',
@@ -73,6 +74,7 @@ class ComparisonTable extends React.Component {
         })
         this.parseImagesAndNames();
         this.parseAttributesNoImageNoNameNoId();
+        console.table(this.state.headerImages);
       },
       failure: (err) => {
         console.log('error = ', error);
