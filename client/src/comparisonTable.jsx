@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import NameRow from './nameRow';
+import HeaderRow from './headerRow';
 
 class ComparisonTable extends React.Component {
   constructor(props) {
@@ -146,27 +146,7 @@ class ComparisonTable extends React.Component {
     return (
       <table>
         <tbody className="tables">
-          <tr id="image-row">
-            <td id="empty-first-column" height="250px" width="250px" />
-            {this.state.data.map(object => (
-              <td>
-                <a href={`http://localhost:8000/${object.id}/`}>
-                    <div>
-                      <img src={object.image_url} height="250px" width="250px" />
-                    </div>
-                </a>
-              </td>
-            ))}
-          </tr>
-          <NameRow data={this.state.data} />
-          <tr id='button-row'>
-            <td id="empty-first-column" width="250px" />
-            {this.state.data.map(element => (
-              <td>
-                <button width="250px">Add to Cart</button>
-              </td>
-            ))}
-          </tr>
+          <HeaderRow data={this.state.data} />
           {this.state.attributes.map(property => (
             <tr id={property}>
               <td>{this.englishCasing(property)}</td>
