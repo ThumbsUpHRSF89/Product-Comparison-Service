@@ -10,12 +10,6 @@ app.use('/favicon.ico', (req, res) => {
   res.send('/../client/dist');
 })
 
-// app.get('/:Id', (req, res) => {
-//   console.log('Id = ', req.params.Id)
-//   let productId = req.params.Id
-//   res.send(productId)
-// });
-
 app.use('/compareproducts/:Id', (req, res) => {
   console.log('req.params.Id = ', req.params.Id);
   let productId = parseInt(req.params.Id);
