@@ -3,6 +3,7 @@ const path = require('path');
 const app = express();
 const controller = require('../database/controllers/controller.js');
 const models = require('../database/models/modelSchema.js');
+const utilities = require('../utilities/chooseRandomFour');
 
 app.use('/:Id', express.static(path.join(__dirname, '/../client/dist')));
 
@@ -25,10 +26,12 @@ app.use('/compareproducts/:Id', (req, res) => {
         if (err) {
           console.log('findFour error: ', err);
         } else {
-          docs.forEach(object => {
-            dataForServer.push(object);
-          });
+          // docs.forEach(object => {
+          //   dataForServer.push(object);
+          // });
+          utilities.chooseRandomFour(docs, dataForServer);
           console.log('dataForServer = ', dataForServer);
+          console.log('dataForServer length = ', dataForServer.length)
           res.send(dataForServer);
         }
       });
