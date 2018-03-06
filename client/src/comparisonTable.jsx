@@ -79,27 +79,12 @@ class ComparisonTable extends React.Component {
           reviewNumber: 339,
         },
       ],
-      headerImages: [],
-      names: [],
       attributes: [],
     };
     this.getData = this.getData.bind(this);
   }
 
-  parseImagesAndNames() {
-    let arrImages = [];
-    let arrNames = [];
-    this.state.data.forEach(object => {
-      arrImages.push(object.image_url);
-      arrNames.push(object.name);
-    });
-    this.setState({
-      headerImages: arrImages,
-      names: arrNames,
-    });
-  }
-
-  parseAttributesNoImageNoNameNoIdNoUnders() {
+  parseAttributesNoImageNoNameNoIdNoUndersNoCategory() {
     let arrAttributes = [];
     let objData = {};
     if (this.state.data[0]) {
@@ -109,6 +94,7 @@ class ComparisonTable extends React.Component {
       delete objData.id;
       delete objData._id;
       delete objData.__v;
+      delete objData.category;
       arrAttributes = Object.keys(objData);
     }
     this.setState({
@@ -129,23 +115,22 @@ class ComparisonTable extends React.Component {
 
   // componentDidMount() {
   //   this.parseImagesAndNames();
-  //   this.parseAttributesNoImageNoNameNoIdNoUnders();
+  //   this.parseAttributesNoImageNoNameNoIdNoUndersNoCategory();
   // }
 
   getData() {
     const { location: { pathname } } = window;
-    const productID = Number(pathname.split('/').pop());
-    console.log('productId = ', productID);
+    const productID = Number(pathname.slice(0, -1).split('/').pop());
+    // console.log('pathname = ', pathname);
+    // console.log('productId = ', productID)
     $.ajax({
       url: '/compareproducts/' + productID,
       type: 'GET',
       success: serverData => {
-        console.log('server data = ', serverData);
         this.setState({
           data: serverData,
         });
-        this.parseImagesAndNames();
-        this.parseAttributesNoImageNoNameNoIdNoUnders();
+        this.parseAttributesNoImageNoNameNoIdNoUndersNoCategory();
       },
       failure: err => {
         console.log('error = ', error);
@@ -163,16 +148,23 @@ class ComparisonTable extends React.Component {
         <tbody className="tables">
           <tr id="image-row">
             <td id="empty-first-column" height="250px" width="250px" />
-            {this.state.headerImages.map(link => (
+            {this.state.data.map(object => (
               <td>
-                <img src={link} height="250px" width="250px" />
+                <a href={`http://localhost:8000/${object.id}/`}>
+                    <div>
+                      <img src={object.image_url} height="250px" width="250px" />
+                    </div>
+                </a>
               </td>
             ))}
           </tr>
-          <NameRow names={this.state.names} />
-          <tr>
+          <NameRow data={this.state.data} />
+          <tr id='button-row'>
+            <td id="empty-first-column" width="250px" />
             {this.state.data.map(element => (
-              <button width="250px">Add to Cart</button>
+              <td>
+                <button width="250px">Add to Cart</button>
+              </td>
             ))}
           </tr>
           {this.state.attributes.map(property => (
