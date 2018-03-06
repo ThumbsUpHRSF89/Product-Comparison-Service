@@ -46,8 +46,8 @@ app.use('/compareproducts/:Id', (req, res) => {
   // })
 });
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8005;
 
 app.listen(port, () => {
-  console.log('Server listening on port 8000');
+  console.log('Server listening on port 8005');
 });
