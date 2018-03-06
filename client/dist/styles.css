@@ -8,6 +8,10 @@
   /* white-space: nowrap
 } */
 
+.object-0 {
+  background-color: #ffffde
+}
+
 tr:nth-child(even) {
   background-color: #f2f2f2
 }
