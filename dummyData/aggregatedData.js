@@ -3,7 +3,7 @@ module.exports.aggregate = [
     id: 0,
     category: 'phone',
     name:
-      'productnamMoto X (4th Generation) - with hands-free Amazon Alexa – 32 GB - Unlocked – Super Black - Prime Exclusive',
+      'Moto X (4th Generation) - with hands-free Amazon Alexa – 32 GB - Unlocked – Super Black - Prime Exclusive',
     image_url:
       'https://images-na.ssl-images-amazon.com/images/I/71qpbk55hmL._SX522_.jpg',
     price: '$718.00',
