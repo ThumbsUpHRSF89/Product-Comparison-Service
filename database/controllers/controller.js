@@ -15,9 +15,7 @@ let findOne = (number, callback) => {
 };
 
 let findFour = (param, callback) => {
-  return models.ProductModel.find({ category: param })
-    .limit(4)
-    .exec(callback);
+  return models.ProductModel.find({ category: param }).exec(callback);
 };
 
 module.exports.findOne = findOne;
