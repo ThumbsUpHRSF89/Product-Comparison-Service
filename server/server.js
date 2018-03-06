@@ -19,7 +19,7 @@ app.use('/compareproducts/:Id', (req, res) => {
     if (err) {
       console.log('Database error: ', err);
     } else {
-      console.log('doc = ', doc);
+      // console.log('doc = ', doc);
       dataForServer.push(doc);
       let category = doc.category;
       controller.findFour(category, (err, docs) => {
@@ -30,8 +30,7 @@ app.use('/compareproducts/:Id', (req, res) => {
           //   dataForServer.push(object);
           // });
           utilities.chooseRandomFour(docs, dataForServer);
-          console.log('dataForServer = ', dataForServer);
-          console.log('dataForServer length = ', dataForServer.length)
+          // console.log('dataForServer = ', dataForServer);
           res.send(dataForServer);
         }
       });
@@ -46,7 +45,7 @@ app.use('/compareproducts/:Id', (req, res) => {
   // })
 });
 
-const port = process.env.PORT || 8005;
+const port = process.env.PORT || 8003;
 
 app.listen(port, () => {
   console.log('Server listening on port 8005');
