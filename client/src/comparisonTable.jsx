@@ -81,7 +81,6 @@ class ComparisonTable extends React.Component {
       ],
       attributes: [],
     };
-    this.getData = this.getData.bind(this);
   }
 
   parseAttributesNoImageNoNameNoIdNoUndersNoCategory() {
@@ -113,16 +112,9 @@ class ComparisonTable extends React.Component {
     return arrString.join('');
   }
 
-  // componentDidMount() {
-  //   this.parseImagesAndNames();
-  //   this.parseAttributesNoImageNoNameNoIdNoUndersNoCategory();
-  // }
-
   getData() {
     const { location: { pathname } } = window;
     const productID = Number(pathname.slice(0, -1).split('/').pop());
-    // console.log('pathname = ', pathname);
-    // console.log('productId = ', productID)
     $.ajax({
       url: '/compareproducts/' + productID,
       type: 'GET',
@@ -150,9 +142,8 @@ class ComparisonTable extends React.Component {
           {this.state.attributes.map(property => (
             <tr id={property}>
               <td>{this.englishCasing(property)}</td>
-              {this.state.data.map((
-                object /*Ask toby why curly boys broke the mapping here- curlies are for multiple lines?*/,
-              ) => <td>{object[property]}</td>)}
+              {this.state.data.map((object, index) =>
+                <td className={`object-${index}`}>{object[property]}</td>)}
             </tr>
           ))}
         </tbody>
