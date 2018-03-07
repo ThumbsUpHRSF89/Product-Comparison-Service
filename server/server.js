@@ -5,7 +5,7 @@ const controller = require('../database/controllers/controller.js');
 const models = require('../database/models/modelSchema.js');
 const utilities = require('../utilities/chooseRandomFour');
 
-app.use('/:Id', express.static(path.join(__dirname, '/../client/dist')));
+app.use('/product/:Id', express.static(path.join(__dirname, '/../client/dist')));
 
 app.use('/favicon.ico', (req, res) => {
   res.send('/../client/dist');
