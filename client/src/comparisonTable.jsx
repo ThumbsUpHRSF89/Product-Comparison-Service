@@ -116,7 +116,8 @@ class ComparisonTable extends React.Component {
     const { location: { pathname } } = window;
     const productID = Number(pathname.slice(0, -1).split('/').pop());
     $.ajax({
-      url: '/compareproducts/' + productID,
+      // port for my db call
+      url: 'http://localhost:8003/compareproducts/' + productID,
       type: 'GET',
       success: serverData => {
         this.setState({
