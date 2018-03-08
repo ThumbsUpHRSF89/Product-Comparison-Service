@@ -1,9 +1,12 @@
 const express = require('express');
 const path = require('path');
+const cors = require("cors");
 const app = express();
 const controller = require('../database/controllers/controller.js');
 const models = require('../database/models/modelSchema.js');
 const utilities = require('../utilities/chooseRandomFour');
+
+app.use(cors());
 
 app.use('/product/:Id', express.static(path.join(__dirname, '/../client/dist')));
 
