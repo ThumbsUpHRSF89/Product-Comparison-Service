@@ -13,26 +13,9 @@ function App () {
   );
 }
 
-// class App extends React.Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       data: []
-//     }
-//   }
-
-//   render() {
-//     return(
-//       <div>
-//         <h2 id='table-title'>Compare with similar items</h2>
-//         <ComparisonTable/>
-//       </div>
-//     );
-//   }
-// }
-
+// We could issue the render command here, but we're issuing it on the proxy html & module html instead
 // ReactDOM.render(
-//   <App/>, document.getElementById('app')
+//   <App/>, document.getElementById('productComparison')
 // );
 
 window.App = App;
