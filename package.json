@@ -4,6 +4,7 @@
   "description": "product comparison module",
   "main": "index.js",
   "dependencies": {
+    "cors": "^2.8.4",
     "eslint": "^4.18.1",
     "express": "^4.16.2",
     "jquery": "^3.3.1",
