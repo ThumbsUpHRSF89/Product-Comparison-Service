@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ComparisonTable from './comparisonTable.jsx';
-
+import CSS from '../dist/styles.css';
+// const CSS = require('../dist/styles.css');
 
 function App () {
   return(
