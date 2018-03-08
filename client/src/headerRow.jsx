@@ -7,7 +7,9 @@ function HeaderRow(props) {
       <td id="empty-first-column" width="250px" />
       {props.data.map(object =>
         <th width='250px'>
-          <a href={`http://localhost:8003/product/${object.id}`}>
+          {/* Hardcoded link for proxy */}
+          <a href={`http://localhost:8000/product/${object.id}`}>
+          {/* <a href={`http://localhost:8003/product/${object.id}`}> */}
             <div>
               <img src={object.image_url} height="250px" width="250px" />
             </div>
