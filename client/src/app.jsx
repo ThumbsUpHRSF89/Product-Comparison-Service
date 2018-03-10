@@ -18,4 +18,4 @@ function App () {
 //   <App/>, document.getElementById('productComparison')
 // );
 
-window.App = App;
+window.productComparison = App;
