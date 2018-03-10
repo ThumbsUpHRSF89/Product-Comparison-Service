@@ -28,6 +28,11 @@ var seedDb = function(data) {
     insertOne(newDoc, err => {
       if (err) {
         console.log("Doc save error", err);
+        insertionCount += 1;
+        if (insertionCount === insertionTarget) {
+          console.log('disconnecting database');
+          mongoose.disconnect();
+        }
       } else {
         console.log("Doc saved!", element.id);
         insertionCount += 1;
