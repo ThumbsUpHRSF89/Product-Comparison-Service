@@ -6,7 +6,7 @@ function HeaderRow(props) {
     <tr id='header-row'>
       <td id="empty-first-column" />
       {props.data.map(object =>
-        <th>
+        <th key={`${object.id}.header`}>
           {/* Hardcoded link for proxy */}
           <a href={`http://localhost:8000/product/${object.id}`}>
           {/* Uncomment the line below for the link to work in as a solo module */}

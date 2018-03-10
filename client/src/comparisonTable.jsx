@@ -70,10 +70,10 @@ class ComparisonTable extends React.Component {
         <tbody className="tables">
           <HeaderRow data={this.state.data} />
           {this.state.attributes.map(property => (
-            <tr id={property}>
+            <tr key={property}>
               <td className="object-property-cell">{this.englishCasing(property)}</td>
               {this.state.data.map((object, index) =>
-                <td className={`object-${index}`}>{object[property]}</td>)}
+                <td key={object.name + property} className={`object-${index}`}>{object[property]}</td>)}
             </tr>
           ))}
         </tbody>
