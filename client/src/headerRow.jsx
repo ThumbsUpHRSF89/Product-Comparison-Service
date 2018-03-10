@@ -4,18 +4,19 @@ import ReactDOM from 'react-dom';
 function HeaderRow(props) {
   return (
     <tr id='header-row'>
-      <td id="empty-first-column" width="250px" />
+      <td id="empty-first-column" />
       {props.data.map(object =>
-        <th width='250px'>
+        <th>
           {/* Hardcoded link for proxy */}
           <a href={`http://localhost:8000/product/${object.id}`}>
+          {/* Uncomment the line below for the link to work in as a solo module */}
           {/* <a href={`http://localhost:8003/product/${object.id}`}> */}
-            <div>
-              <img src={object.image_url} height="250px" width="250px" />
+            <div className="image-container">
+              <img src={object.image_url} className="comparison-image" />
             </div>
-            <div className='product-name' width='250px'>{object.name}</div>
+            <div className='product-name'>{object.name}</div>
           </a>
-          <button className='purchase-button' width="250px">Add to Cart</button>
+          <button className='purchase-button'>Add to Cart</button>
         </th>
       )}
     </tr>
