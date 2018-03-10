@@ -46,7 +46,7 @@
     "test": "jest --watch",
     "build": "webpack --watch",
     "start": "nodemon server/server.js",
-    "server": "node server/server.js",
+    "docker": "npm run seed-database && node server/server.js",
     "seed-database": "node ./database/seed.js"
   },
   "repository": {

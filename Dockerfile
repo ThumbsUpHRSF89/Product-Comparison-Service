@@ -10,4 +10,4 @@ RUN npm install
 
 EXPOSE 3000
 
-CMD ['npm', 'run', 'seed-database', '&&', 'npm', 'run', 'server']
+CMD ['npm', 'run', 'docker']
